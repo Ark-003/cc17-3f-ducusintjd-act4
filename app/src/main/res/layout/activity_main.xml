@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:title="Tip Time"
+        app:titleTextColor="@android:color/white" />
+
+    <TextView
+        android:id="@+id/billAmt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="96dp"
+        android:text="Bill Amount"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/billValue"
+        android:layout_width="320dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="128dp"
+        android:ems="5"
+        android:hint="000.00"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.384"
+        app:layout_constraintStart_toEndOf="@+id/dollarSign"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/dollarSign"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:text="$"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/billAmt" />
+
+    <TextView
+        android:id="@+id/tipQuestion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="How was the service?"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/billAmt"
+        app:layout_constraintTop_toBottomOf="@+id/billValue" />
+
+    <RadioGroup
+        android:id="@+id/tipOptions"
+        android:layout_width="221dp"
+        android:layout_height="146dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="@+id/tipQuestion"
+        app:layout_constraintTop_toBottomOf="@+id/tipQuestion">
+
+        <RadioButton
+            android:id="@+id/option1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Amazing (20%)"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+
+        <RadioButton
+            android:id="@+id/option2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Good (18%)"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+
+        <RadioButton
+            android:id="@+id/option3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ok (15%)"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+    </RadioGroup>
+
+
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="375dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="64dp"
+        android:switchTextAppearance="@style/TextAppearance.AppCompat.Large"
+        android:text="Round up tip?"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintEnd_toEndOf="@+id/calcButton"
+        app:layout_constraintStart_toStartOf="@+id/calcButton"
+        app:layout_constraintTop_toBottomOf="@+id/tipOptions" />
+
+    <Button
+        android:id="@+id/calcButton"
+        android:layout_width="375dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:text="Calculate"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:cornerRadius="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch1" />
+
+
+    <TextView
+        android:id="@+id/tipAmt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
+        android:text="Tip Amount"
+        android:textAlignment="viewEnd"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.545"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calcButton"
+        app:layout_constraintVertical_bias="0.426" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <TextView
+        android:id="@+id/tipVal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$00.00"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tipAmt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calcButton"
+        app:layout_constraintVertical_bias="0.9" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
